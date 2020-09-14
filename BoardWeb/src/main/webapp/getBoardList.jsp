@@ -3,7 +3,7 @@
 <%@page import="com.springbook.biz.board.BoardVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-    
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%
 	BoardVO vo = new BoardVO();
 	BoardDAO boardDAO = new BoardDAO();
@@ -16,13 +16,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h3>${userName }님! 게시판에 오신걸 환영합니다.<a href="logout.do"></a></h3>
 	<form action="getBoardList.jsp" method="post">
 		<table>
 			<tr>
 				<td>
 					<select name="searchCondition">
-						<option value="TITLE">제목
-						<option value="CONTENT">내용
+					<c:forEach items="${ conditionMap}" var="option">
+						<option value="${option.value }">${option.key}</option>
+					</c:forEach>
 					</select>
 					<input name="searchKeyword" type="text">
 					<input type="submit" value="검색">
