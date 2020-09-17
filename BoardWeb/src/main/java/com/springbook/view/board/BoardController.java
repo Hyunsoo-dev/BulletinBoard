@@ -72,9 +72,10 @@ public class BoardController {
 	
 	//글 목록 검색
 	@RequestMapping(value="/getBoardList.do")
-	public String getBoardList(@RequestParam(value="searchCondition",defaultValue="TITLE",required=false)String searchCondition,
-			@RequestParam(value="searchKeywork",defaultValue="",required=false)String searchKeyword, BoardVO vo,Model model){
+	public String getBoardList(BoardVO vo,Model model){
 		System.out.println("글 목록 검색 처리");
+		if(vo.getSearchCondition()==null) vo.setSearchCondition("TITLE");
+		if(vo.getSearchKeyword()==null) vo.setSearchKeyword("");
 		
 		List<BoardVO> boardList = boardService.getBoardList(vo);
 		model.addAttribute("boardList", boardList);
