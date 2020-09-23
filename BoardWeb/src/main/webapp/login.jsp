@@ -5,21 +5,26 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/index.css"/>
 </head>
 <body>
+	
 	<form action="login.do" method="post">
-		<table border="1" cellpadding="0" cellspacing="0">
+		<table>
 			<tr>
-				<td>아이디</td>
-				<td><input type="text" name="id"></td>
+				<th colspan="2" class="login_logo">LOGIN</th>
 			</tr>
 			<tr>
-				<td>비밀번호</td>
-				<td><input type="password" name="password"></td>
+				<th>아이디</th>
+				<td><input type="text" name="id" class="login_text" size="30"></td>
+
+			<tr>
+				<th>비밀번호</th>
+				<td><input type="password" name="password" class="login_text" size="30"></td>
 			</tr>
 			<tr>
-				<td colspan="2">
-					<input type="submit" value="로그인">
+				<td colspan="2" class="login_button">
+					<input type="submit" value="로그인" >
 					<input type="button" value="회원가입" onclick="location.href='join.jsp'">
 				</td>
 			</tr>
