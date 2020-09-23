@@ -11,8 +11,17 @@ public class UserDAOMybatis {
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
+	//회원가입
+	public void insertUser(UserVO vo) {
+		System.out.println("Mybatis 로 insertUser() 기능 처리");
+		mybatis.insert("UserDAO.insertUser", vo);
+	}
+	
+	//로그인 
 	public UserVO getUser(UserVO vo) {
 		System.out.println("Mybatis 로 getUser() 기능 처리");
 		return (UserVO)mybatis.selectOne("UserDAO.getUser", vo);
 	}
+	
+
 }
